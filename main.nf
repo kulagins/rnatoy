@@ -59,6 +59,7 @@ Channel
  */
 process buildIndex {
     tag "$genome.baseName"
+    pod label: 'BIGLABEL', value: 'BIGBIGBGIGLABEL'
 
     input:
     path genome from params.genome
@@ -76,7 +77,7 @@ process buildIndex {
  */
 process mapping {
     tag "$pair_id"
-
+     pod label: 'BIGLABEL', value: 'BIGBIGBGIGLABEL'
      
     input:
     path genome from params.genome 
@@ -99,6 +100,7 @@ process mapping {
 process makeTranscript {
     tag "$pair_id"
     publishDir params.outdir, mode: 'copy'
+     pod label: 'BIGLABEL', value: 'BIGBIGBGIGLABEL'
 
     input:
     path annot from params.annot
