@@ -59,8 +59,7 @@ Channel
  */
 process buildIndex {
     tag "$genome.baseName"
-    pod label: 'BIGLABEL', value: 'BIGBIGBGIGLABEL'
-
+    pod schedulerName: 'multi-scheduler'
     input:
     path genome from params.genome
      
@@ -77,8 +76,8 @@ process buildIndex {
  */
 process mapping {
     tag "$pair_id"
-     pod label: 'BIGLABEL', value: 'BIGBIGBGIGLABEL'
-     
+    pod schedulerName: 'multi-scheduler'
+
     input:
     path genome from params.genome 
     path annot from params.annot
@@ -100,7 +99,7 @@ process mapping {
 process makeTranscript {
     tag "$pair_id"
     publishDir params.outdir, mode: 'copy'
-     pod label: 'BIGLABEL', value: 'BIGBIGBGIGLABEL'
+    pod schedulerName: 'multi-scheduler'
 
     input:
     path annot from params.annot
